@@ -1,0 +1,6 @@
+@ApiONGAdocao_HostAddress = http://localhost:5199
+
+GET {{ApiONGAdocao_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
