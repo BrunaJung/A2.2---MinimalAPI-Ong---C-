@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiONGAdocao.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250523190425_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250530180512_AtualizaModelo")]
+    partial class AtualizaModelo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,23 +25,23 @@ namespace ApiONGAdocao.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Especie")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Raca")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Idade")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<double>("Peso")
-                        .HasColumnType("DOUBLE");
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Raca")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

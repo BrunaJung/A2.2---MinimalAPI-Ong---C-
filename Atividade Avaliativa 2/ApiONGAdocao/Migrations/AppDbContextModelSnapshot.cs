@@ -33,6 +33,9 @@ namespace ApiONGAdocao.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("Peso")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("Raca")
                         .IsRequired()
                         .HasColumnType("TEXT");

@@ -6,7 +6,6 @@ public static class DeleteEndpoints
 {
     public static void MapDeleteEndpoints(this WebApplication app)
     {
-        // DELETE: remover animal por ID
         app.MapDelete("/api/animais/{id}", async (int id, AppDbContext db) =>
         {
             var animal = await db.Animais.FindAsync(id);

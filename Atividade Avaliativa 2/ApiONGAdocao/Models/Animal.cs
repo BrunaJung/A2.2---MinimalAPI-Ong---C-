@@ -7,4 +7,5 @@ public class Animal
     public string Especie { get; set; } = string.Empty;
     public string Raca { get; set; } = string.Empty;
     public int Idade { get; set; }
+    public double Peso { get; set; }
 }

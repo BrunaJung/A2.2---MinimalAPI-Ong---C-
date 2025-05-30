@@ -19,7 +19,8 @@ namespace ApiONGAdocao.Migrations
                     Nome = table.Column<string>(type: "TEXT", nullable: false),
                     Especie = table.Column<string>(type: "TEXT", nullable: false),
                     Raca = table.Column<string>(type: "TEXT", nullable: false),
-                    Idade = table.Column<int>(type: "INTEGER", nullable: false)
+                    Idade = table.Column<int>(type: "INTEGER", nullable: false),
+                    Peso = table.Column<double>(type: "DOUBLE", nullable: false)
                 },
                 constraints: table =>
                 {

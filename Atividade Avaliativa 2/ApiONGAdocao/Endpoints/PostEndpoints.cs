@@ -7,7 +7,6 @@ public static class PostEndpoints
 {
     public static void MapPostEndpoints(this WebApplication app)
     {
-        // POST: adicionar novo animal
         app.MapPost("/api/animais", async (Animal animal, AppDbContext db) =>
         {
             db.Animais.Add(animal);
