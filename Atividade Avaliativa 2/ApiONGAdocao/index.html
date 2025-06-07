@@ -60,11 +60,11 @@
   <!-- CADASTRO -->
   <div class="card">
     <h2>Cadastro de Animais</h2>
-    <input id="animalId" placeholder="ID (gerado automaticamente)" readonly />
+    <input id="id" placeholder="ID (gerado automaticamente)" readonly />
     <input id="nome" placeholder="Nome do Animal" />
     <select id="especie">
       <option value="">Selecione a Espécie do Animal</option>
-      <option value="cachorro">cachorro</option>
+      <option value="cachorro">Cachorro</option>
       <option value="gato">Gato</option>
     </select>
     <input id="raca" placeholder="Raça do Animal" />
@@ -83,7 +83,7 @@
       <option value="Cachorro">Cachorro</option>
       <option value="Gato">Gato</option>
     </select>
-    <input id="filtroRaca" placeholder="Ano"/>
+    <input id="filtroRaca" placeholder="Raça"/>
     <button class="btn-primary" onclick="filtrarAnimais()">Pesquisar</button>
     <button class="btn-warning" onclick="limparFiltros()">Limpar</button>
   </div>
@@ -127,7 +127,7 @@
       linha.innerHTML = `
         <td>
           <span class="btn-edit" onclick="preencherFormulario(${animal.id}, '${animal.nome}', '${animal.especie}', ${animal.raca}, '${animal.idade}', '${animal.peso}')">✏️</span>
-          <span class="btn-delete" onclick="excluirLivro(${animal.id})">🗑️</span>
+          <span class="btn-delete" onclick="excluirAnimal(${animal.id})">🗑️</span>
         </td>
         <td>${animal.id}</td>
         <td>${animal.nome}</td>
@@ -141,7 +141,7 @@
   }
 
   async function adicionarOuAtualizarAnimal() {
-    const id = document.getElementById("animalId").value;
+    const id = document.getElementById("id").value;
     const nome = document.getElementById("nome").value;
     const especie = document.getElementById("especie").value;
     const raca = document.getElementById("raca").value;
@@ -175,7 +175,7 @@
   }
 
   function preencherFormulario(id, nome, especie, raca, idade, peso) {
-    document.getElementById("animalId").value = id;
+    document.getElementById("id").value = id;
     document.getElementById("nome").value = nome;
     document.getElementById("especie").value = especie;
     document.getElementById("raca").value = raca;
@@ -192,7 +192,7 @@
   }
 
   function limparFormulario() {
-    document.getElementById("animalId").value = "";
+    document.getElementById("id").value = "";
     document.getElementById("nome").value = "";
     document.getElementById("especie").value = "";
     document.getElementById("raca").value = "";
@@ -200,7 +200,7 @@
     document.getElementById("peso").value = "";
   }
 
-  function filtrarLivros() {
+  function filtrarAnimais() {
     const id = document.getElementById("filtroId").value;
     const nome = document.getElementById("filtroNome").value.toLowerCase();
     const especie = document.getElementById("filtroEspecie").value.toLowerCase();
@@ -215,20 +215,19 @@
           (especie === "" || animal.especie.toLowerCase().includes(especie)) &&
           (raca === "" || animal.raca == raca)
         );
-        mostrarLivros(filtrados);
+        mostrarAnimais(filtrados);
       });
   }
 
   function limparFiltros() {
     document.getElementById("filtroId").value = "";
-    document.getElementById("filtroTitulo").value = "";
-    document.getElementById("filtroAutor").value = "";
-    document.getElementById("filtroAno").value = "";
-    document.getElementById("filtroTipo").value = "";
-    carregarLivros();
+    document.getElementById("filtroNome").value = "";
+    document.getElementById("filtroEspecie").value = "";
+    document.getElementById("filtroRaca").value = "";
+    carregarAnimais();
   }
 
-  carregarLivros();
+  carregarAnimais();
 </script>
 </body>
 </html>
