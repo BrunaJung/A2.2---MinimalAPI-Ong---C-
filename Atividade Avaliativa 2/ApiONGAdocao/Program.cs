@@ -5,6 +5,14 @@ using ApiONGAdocao.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTudo", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=animais.db"));
 
@@ -21,6 +29,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGetEndpoints();
 app.MapPostEndpoints();
+app.MapPutEndpoints();
 app.MapDeleteEndpoints();
 
 using (var scope = app.Services.CreateScope())
@@ -46,5 +55,7 @@ using (var scope = app.Services.CreateScope())
         db.SaveChanges();
     }
 }
+
+app.UseCors("PermitirTudo");
 
 app.Run();
