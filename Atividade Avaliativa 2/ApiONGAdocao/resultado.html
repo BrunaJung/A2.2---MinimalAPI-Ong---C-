@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultado do Cálculo</title>
+</head>
+<body>
+  <h2>Resultado do Cálculo</h2>
+  <p>O resultado foi: <span id="exibir-resultado"></span></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const resultado = params.get("resultado");
+    document.getElementById("exibir-resultado").textContent = resultado;
+  </script>
+</body>
+</html>

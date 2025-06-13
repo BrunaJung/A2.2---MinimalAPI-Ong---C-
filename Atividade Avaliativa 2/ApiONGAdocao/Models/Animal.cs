@@ -8,4 +8,5 @@ public class Animal
     public string Raca { get; set; } = string.Empty;
     public int Idade { get; set; }
     public double Peso { get; set; }
+    public DateTime DataCadastro { get; set; } = DateTime.Now;
 }
